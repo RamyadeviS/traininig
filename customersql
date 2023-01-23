@@ -1,0 +1,143 @@
+
+CREATE TABLE Vet (
+    Vet_ID NUMBER(3),
+    V_fName VARCHAR2(20) NOT NULL,
+    V_lName VARCHAR2(20) NOT NULL,
+    V_Phone VARCHAR2(12) UNIQUE,
+    V_Address VARCHAR2(50),
+    Salary_Per_Mon NUMBER(6) NOT NULL,
+    Charge_Per_App NUMBER(3) NOT NULL,
+    CONSTRAINT Vet_VetID_PK PRIMARY KEY (Vet_ID));
+ --drop table Vet;
+-- Insert data into Vet table
+INSERT INTO Vet VALUES(111, 'Tom', 'Harij', '01112223334', 'Gombak, Selangor', '6000', '80');
+
+INSERT INTO Vet VALUES(112, 'Mohammad', 'Imran', '01112663334', 'Bukit Damansara, Kuala Lumpur', '6500', '90');
+
+INSERT INTO Vet VALUES(113, 'Nurul', 'Hushni', '01166623334', 'Medan Idaman, Selangor', '8000', '100');
+
+INSERT INTO Vet VALUES(114, 'Yu', 'Yan', '01112223434', 'Bukit Bintang, Kuala Lumpur', '9000', '110');
+
+INSERT INTO Vet VALUES(115, 'Ying', 'Yue', '01122223434', 'Bukit Bintang, Kuala Lumpur', '9000', '120');
+
+INSERT INTO Vet VALUES(116, 'Safa', 'Kabir', '01212223434', 'Batu Caves, Selangor', '8500', '100');
+
+INSERT INTO Vet VALUES(117, 'Mohammad', 'Musfiq', '01212923434', 'Batu Caves, Selangor', '7000', '70');
+
+INSERT INTO Vet VALUES(118, 'Mohammad', 'Latif', '01912923434', 'Ampang, Kuala Lumpur', '7500', '85');
+
+INSERT INTO Vet VALUES(119, 'Mohammad', 'Razak', '01219923434', 'Batu Caves, Selangor', '10000', '150');
+
+INSERT INTO Vet VALUES(120, 'Mohammad', 'Mubarak', '01999923434', 'Batu Caves, Selangor', '10000', '140');
+
+SELECT *FROM Vet;
+
+CREATE TABLE Owner (
+    Owner_ID NUMBER(4),
+    O_fName VARCHAR2(20) NOT NULL,
+    O_lName VARCHAR2(20) NOT NULL,
+    O_Phone VARCHAR2(12) UNIQUE,
+    O_Address VARCHAR2(50) NOT NULL,
+    CONSTRAINT Owner_OwnerID_PK PRIMARY KEY (Owner_ID));
+
+-- Insert data into Owner table
+INSERT INTO Owner VALUES(1001, 'Esmee', 'Benitez', '01100000111', 'Gombak, Selangor');
+
+INSERT INTO Owner VALUES(1002, 'Freyja', 'Paul', '01100000112', 'Ampang, Selangor');
+
+INSERT INTO Owner VALUES(1003, 'Mohammad', 'Iman', '01100000113', 'Bandar Baru Bangi, Selangor');
+
+INSERT INTO Owner VALUES(1004, 'Mohammad', 'Asraf', '01100000114', 'Banting, Selangor');
+
+INSERT INTO Owner VALUES(1005, 'Mohammad', 'Arif', '01100001114', 'Gombak, Selangor');
+
+INSERT INTO Owner VALUES(1006, 'Danial', 'Hakim', '01100000115', 'Medan Idaman, Selangor');
+
+INSERT INTO Owner VALUES(1007, 'Raihan', 'Kabir', '01100000116', 'Batu Caves, Selangor');
+
+INSERT INTO Owner VALUES(1008, 'Mohammad', 'Hahmid', '01100001116', 'Gombak, Selangor');
+
+INSERT INTO Owner VALUES(1009, 'Mohammad', 'Rakib', '01100001117', 'Bukit Nasa, Kuala Lumpur');
+
+INSERT INTO Owner VALUES(1010, 'Abdur', 'Rahman', '01100000118', 'Gombak, Selangor');
+
+INSERT INTO Owner VALUES(1011, 'Abdur', 'Salem', '01100010118', ' ');
+SELECT *FROM Owner;
+
+CREATE TABLE Pet (
+    Pet_ID NUMBER(4),
+    Owner_ID NUMBER(4),
+    Pet_Name VARCHAR2(25) NOT NULL,
+    Pet_Type VARCHAR2(10) CHECK(lower(Pet_Type) IN ('dog', 'cat', 'bird', 'rabbit', 'fish', 'Cow', 'Goat', 'reptile')),
+    Pet_Age NUMBER(2),
+    Pet_Primary_Color VARCHAR2(15));
+
+--insert data into pet table
+INSERT INTO pet VALUES(7865,3455,'jerry','dog',1,'white','20-3-2000');
+
+INSERT INTO pet VALUES(6565,3875,'Putih','cat',5,'white','2-5-2010');
+
+INSERT INTO pet VALUES(7765,8768,'pupy','dog',3,'red','10-6-2030');
+
+INSERT INTO pet VALUES(7865,3455,'star','fish',2,'white','20-3-2003');
+
+INSERT INTO pet VALUES(9876,7655,'roja','cow',6,'orange','10-6-2030');
+
+INSERT INTO pet VALUES(7755,7655,'jerry','dog',5,'gray','5-3-1990');
+
+INSERT INTO pet VALUES(7876,5598,'beauty','peacock',5,'green','20-3-2000');
+
+INSERT INTO pet VALUES(7875,8745,'kutty','rabit',4,'orange','6-8-1997');
+SELECT*FROM Pet;
+
+CREATE TABLE Pet_Condition (
+    Pet_ID NUMBER(4),
+    Pet_Condition VARCHAR2(50),
+    CONSTRAINT PetCondition_PetID_PK PRIMARY KEY (Pet_ID) );
+
+--insert data into pet_condition table
+INSERT INTO Pet_condition VALUES(7865,'better');
+INSERT INTO Pet_condition VALUES(6565,'good');
+INSERT INTO Pet_condition VALUES(7765,'better');
+INSERT INTO Pet_condition VALUES(7865,'good');
+INSERT INTO Pet_condition VALUES(9876,'bad');
+INSERT INTO Pet_condition VALUES(7755,'good');
+INSERT INTO Pet_condition VALUES(7876,'good');
+INSERT INTO Pet_condition VALUES(7875,'good');
+
+SELECT*FROM Pet_condition;
+--drop table Pet_condition;
+
+CREATE TABLE Appointment (
+    Appointment_ID NUMBER(5),
+    Owner_ID NUMBER(4),
+    Pet_ID NUMBER(4),
+    "Date" DATE,
+    "Time" VARCHAR2(20),
+    "Comment" VARCHAR2(40),
+    Vet_ID NUMBER(3),
+    CONSTRAINT Appointment_AppID_PK PRIMARY KEY (Appointment_ID));
+--drop table Appointment;
+--insert data into Appointment table
+INSERT INTO Appointment VALUES(590,1001,7865,7865,'30-02-2000','3','injury',111);
+INSERT INTO Appointment VALUES(591,1002,6565,'10-12-2001','9','cough',112);
+INSERT INTO Appointment VALUES(592,1003,7765,'11-04-2002','3:33','injury',113);
+INSERT INTO Appointment VALUES(593,1004,7865,'15-06-2003','6','fever',114);
+INSERT INTO Appointment VALUES(594,1005,9876,'23-07-2004','8','injury',115);
+INSERT INTO Appointment VALUES(595,1006,7755,'03-11-2006','7','cough',116);
+INSERT INTO Appointment VALUES(596,1007,7876,'11-08-2007','6','cough',117);
+
+SELECT* FROM Appointment;
+
+
+SELECT Owner_id from owner ORDER BY Owner_id DESC;
+
+SELECT Vet_id,V_fName,V_lName,Salary_Per_Mon from Vet where Salary_per_Mon >8000;
+truncate table Pet;
+ALTER table Pet add Appointment_date VARCHAR(23);
+
+
+
+
+
+

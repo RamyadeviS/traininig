@@ -1,0 +1,15 @@
+create table Library(library_id number(11),book_name varchar(30),price number(35),author_name varchar(33));
+--insert table
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (11,'silly novels',1200,'George Elliot');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (12,'java',1300,'James Gosling');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (13,'c',1000,'David');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (14,'c++',2000,'Bjane Stroustrup');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (15,'M1',1100,'Balaji');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (16,'Germinal',500,'Emile Zola');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (17,'Oliver Twist',1500,'Charles Dickens');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (18,'Tom Jones',700,'Henry Filding');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (19,'story book',1060,'raja');
+INSERT INTO Library(library_id,book_name,price,author_name)VALUES (20,'java',1110,'James Gosling');
+SELECT *from Library;
+commit;
+drop table Library;

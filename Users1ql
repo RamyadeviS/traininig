@@ -1,0 +1,12 @@
+create table user1(name varchar(20),password varchar (35),id number primary key,mobile_no number(15),mail_id varchar(17),role varchar(21));
+SELECT * from user1;
+drop table user1;
+
+Create table movie(movie_id number primary key,movie_name varchar(19),cost number(18));
+SELECT *from movie;
+drop table movie;
+
+Create table ticketBooking (id number(10) references user1(id),movie_id number(15) references movie(movie_id),movie_name varchar(19),booking_id number(10),total_cost number(20),no_of_tickets number(30),show_time  varchar(11));
+SELECT *from ticketBooking;
+
+commit;

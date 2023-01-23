@@ -1,0 +1,119 @@
+-- create a table
+CREATE TABLE customers(customer_id number(17) PRIMARY KEY ,customer_name varchar(15),address varchar(20),website varchar(30),credit_limit varchar(13));
+-- insert data
+INSERT INTO customers(customer_id,customer_name,address,website,credit_limit) VALUES (11,'ramya','chennai','www.com',4657);
+INSERT INTO customers(customer_id,customer_name,address,website,credit_limit) VALUES (12,'jaya','madurai','ram.in',4745);
+INSERT INTO customers(customer_id,customer_name,address,website,credit_limit) VALUES (13,'surya','kerala','www.insta',4000);
+INSERT INTO customers(customer_id,customer_name,address,website,credit_limit) VALUES (14,'devi','trichy','www.yahoo',5000);
+INSERT INTO customers(customer_id,customer_name,address,website,credit_limit) VALUES (15,'raja','Ariyalur','www.com.in',7000);
+--fetch data
+SELECT *from customers;
+drop table customers;
+create table orders(order_id number(10),customer_id number(25),order_status varchar(7),salesman_id number(15),order_date varchar(18),
+     constraint customers_orders_fk foreign key(customer_id) references customers);
+INSERT INTO orders(order_id,customer_id,order_status,salesman_id,order_date)VALUES(4567,11,'better',9876,'13/10/2022');
+INSERT INTO orders(order_id,customer_id,order_status,salesman_id,order_date) VALUES(9767,12,'good',9567,'18/12/2010');
+INSERT INTO orders(order_id,customer_id,order_status,salesman_id,order_date)VALUES(5677,13,'better',1176,'19/1/2012');
+INSERT INTO orders(order_id,customer_id,order_status,salesman_id,order_date) VALUES(7656,14,'bad',7687,'18/12/2021');
+INSERT INTO orders(order_id,customer_id,order_status,salesman_id,order_date)VALUES(5687,15,'nice',2346,'23/11/2015');
+SELECT *FROM orders;
+drop table orders;
+
+
+CREATE TABLE contacts(contact_id number(20),first_name varchar(8),last_name varchar(18),email varchar(12),phone number(17),customer_id number(20),
+    CONSTRAINT customers_contacts_fk FOREIGN KEY(customer_id)REFERENCES customers);
+INSERT INTO contacts(contact_id ,first_name,last_name,email ,phone,customer_id) VALUES (345,'raja','s','raja@45',934567867,11);
+INSERT INTO contacts(contact_id ,first_name,last_name,email ,phone,customer_id) VALUES (346,'jaya','j','jaya@55',945677897,12);
+INSERT INTO contacts(contact_id ,first_name,last_name,email ,phone,customer_id) VALUES (347,'devi','m','devi@75',934512217,13);
+INSERT INTO contacts(contact_id ,first_name,last_name,email ,phone,customer_id) VALUES (348,'jay','k','jay@49',946578647,14);
+INSERT INTO contacts(contact_id ,first_name,last_name,email ,phone,customer_id) VALUES (349,'ram','v','ram@95',931456456,15);
+SELECT *FROM contacts;
+drop table contacts;
+
+CREATE TABLE product_categories1 (product_id number PRIMARY KEY,category_name varchar(7));
+INSERT INTO product_categories1 (product_id,category_name)VALUES(21,'mobile');
+INSERT INTO product_categories1(product_id,category_name) VALUES(22,'laptop');
+INSERT INTO product_categories1(product_id,category_name) VALUES(23,'plastics');
+INSERT INTO product_categories1(product_id,category_name) VALUES(24,'pipe');
+INSERT INTO product_categories1(product_id,category_name) VALUES(25,'wire');
+SELECT *FROM product_categories1;
+drop table product_categories1;
+
+CREATE TABLE products2(product_id,product_name varchar(20),description varchar(15),standard_cost number(16),list_price number(13),category number(19),
+    constraint products2_categories1_products2_fk foreign key(product_id)references product_categories1);
+INSERT INTO products2(product_id,product_name,description ,standard_cost,list_price,category ) VALUES(21,'mobile','oppo',40000,38000,4567);
+INSERT INTO products2(product_id,product_name,description ,standard_cost,list_price,category ) VALUES(22,'laptop','hp',50000,48000,4577);
+INSERT INTO products2(product_id,product_name,description ,standard_cost,list_price,category ) VALUES(23,'plastic','chair',40000,38000,4567);
+INSERT INTO products2(product_id,product_name,description ,standard_cost,list_price,category ) VALUES(24,'mobile','vivo',50000,49000,4577);
+INSERT INTO products2(product_id,product_name,description ,standard_cost,list_price,category ) VALUES(25,'electronics','wire',40000,38000,4567);
+SELECT *FROM products2;
+drop table products2;
+
+CREATE TABLE orderItems(order_id number(10),item_id number(12),product_id number(13),Quantity number(15),unit_price number(20),
+  constraint product_categories1_orderItems_fk foreign key(product_id)REFERENCES product_categories1);
+INSERT INTO orderItems(order_id,item_id,product_id,Quantity,unit_price)VALUES(4567,7645,21,10,40000);
+INSERT INTO orderItems(order_id,item_id,product_id,Quantity,unit_price)VALUES(76587,9954,22,5,20000);
+INSERT INTO orderItems(order_id,item_id,product_id,Quantity,unit_price)VALUES(76587,5674,23,4,30000);
+INSERT INTO orderItems(order_id,item_id,product_id,Quantity,unit_price)VALUES(87687,6774,24,11,11000);
+INSERT INTO orderItems(order_id,item_id,product_id,Quantity,unit_price)VALUES(99887,4564,25,15,50000);
+SELECT *FROM orderItems;
+drop table orderItems;
+CREATE TABLE employees(employee_id number(20),first_name varchar(8),last_name varchar(18),email varchar(12),phone number(17),hire_date varchar(20),manager_id number(10),job_title varchar(14));
+INSERT INTO employees VALUES (376,'jaya','j','ja@45',945677867,'11/2/2000',576898,'oracle');
+INSERT INTO employees VALUES (656,'jay','s','jay@45',948765657,'30/7/2005',98678,'java');
+
+SELECT *FROM employees;
+
+
+CREATE TABLE regions(region_id number(20) primary key ,region_name varchar(20));
+INSERT INTO regions VALUES (876,'North');
+INSERT INTO regions VALUES (877,'South');
+INSERT INTO regions VALUES (878,'East');
+INSERT INTO regions VALUES (879,'West');
+INSERT INTO regions VALUES (880,'NorthEast');
+
+SELECT region_id FROM regions; 
+SELECT region_name FROM regions; 
+SELECT * FROM regions; 
+
+CREATE TABLE countries(country_id number primary key,country_name varchar(20),region_id number(20),
+       CONSTRAINT regions_countries_fk foreign key (region_id)REFERENCES regions);
+INSERT INTO countries(country_id,country_name,region_id) VALUES (8,'India',876);
+INSERT INTO countries (country_id,country_name,region_id) VALUES (9,'Italy',877);
+INSERT INTO countries (country_id,country_name,region_id) VALUES (10,'Africa',878);
+INSERT INTO countries (country_id,country_name,region_id) VALUES (11,'America',879);
+INSERT INTO countries(country_id,country_name,region_id) VALUES (12,'London',880);
+select*from countries;
+drop table countries;
+
+
+CREATE TABLE locations(location_id number(6),address varchar(19),postal_code number(10),city varchar(15),state varchar(13),country_id number(14),
+    constraint countries_locations_fk foreign key (country_id) references countries);
+INSERT INTO locations(location_id,address,postal_code,city,state,country_id) VALUES (4561,'vanagaram',8761,'chennai','Tamilnadu',8);
+INSERT INTO locations(location_id,address,postal_code,city,state,country_id) VALUES (4562,'ambattur',8762,'madurai','Andhra',9);
+INSERT INTO locations(location_id,address,postal_code,city,state,country_id) VALUES (4563,'koyambed',8763,'kovai','Kerala',10);
+INSERT INTO locations(location_id,address,postal_code,city,state,country_id) VALUES (4564,'egmore',8764,'tanjore','Gujarat',11);
+INSERT INTO locations(location_id,address,postal_code,city,state,country_id) VALUES (4565,'mugapeyar',8765,'bangalore','Kerala',12);
+SELECT *FROM locations;
+drop table locations;
+
+CREATE TABLE inventories(product_id number primary key,wareHouse_id number(20),quantity number(15));
+INSERT INTO inventories(product_id,wareHouse_id ,quantity )VALUES (86576,25,7);
+INSERT INTO inventories(product_id,wareHouse_id ,quantity )VALUES (98786,26,8);
+INSERT INTO inventories(product_id,wareHouse_id ,quantity )VALUES (81276,27,9);
+INSERT INTO inventories(product_id,wareHouse_id ,quantity )VALUES (87236,28,10);
+INSERT INTO inventories(product_id,wareHouse_id ,quantity )VALUES (89876,29,11);
+SELECT *FROM inventories;
+drop table inventories;
+
+CREATE TABLE wareHouses (wareHouse_id number(15),wareHouse_name varchar(7),location_id number(18),
+     constraint inventories_wareHouses_fk foreign key (wareHouse_id) references inventories);
+INSERT INTO wareHouses(wareHouse_id,wareHouse_name,location_id) VALUES (25,'asgf',45678);
+INSERT INTO wareHouses(wareHouse_id,wareHouse_name,location_id) VALUES (26,'asgf',12348);
+INSERT INTO wareHouses(wareHouse_id,wareHouse_name,location_id) VALUES (27,'qwert',45678);
+INSERT INTO wareHouses(wareHouse_id,wareHouse_name,location_id) VALUES(28,'kjsdf',98765);
+INSERT INTO wareHouses(wareHouse_id,wareHouse_name,location_id) VALUES (29,'zxcvd',45678);
+SELECT *FROM wareHouses;
+drop table wareHouses;
+
+commit;

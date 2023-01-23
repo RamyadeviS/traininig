@@ -1,0 +1,3 @@
+create table user1(name varchar(20),password varchar (35),id number(10),mobile_no number(15),mail_id varchar(17),role varchar(21));
+SELECT * from user1;
+drop table user1;

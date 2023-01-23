@@ -1,0 +1,7 @@
+CREATE TABLE contacts(contact_id number(20),first_name varchar(8),last_name varchar(18),email varchar(12),phone number(17),customer_id number(20));
+INSERT INTO contacts VALUES (345,'raja','s','raja@45',934567867,45656);
+INSERT INTO contacts VALUES (376,'jaya','j','ja@45',945677867,45676);
+SELECT first_name,last_name,contact_id FROM contacts;
+SELECT *From contacts;
+commit;
+drop table contacts;
