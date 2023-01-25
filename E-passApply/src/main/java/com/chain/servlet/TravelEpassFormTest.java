@@ -7,27 +7,28 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-
-import com.chain.model.EpassForm;
+import com.chain.model.TravelEpassForm;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-//@WebServlet("/EpassFormTest")
-public class EpassFormTest extends HttpServlet {
-	
+//@WebServlet("/TravelEpassFormTest")
+public class TravelEpassFormTest extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    EpassForm epassForm=new EpassForm();
-    
-    public EpassFormTest() {
+     TravelEpassForm travelEass=new TravelEpassForm();
+    public TravelEpassFormTest() {
+        super();
+        
     }
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	
+	/*protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 		String applicationNo =request.getParameter("ApplicationNo");
 		response.getWriter();
-		epassForm.setApplicationNo(applicationNo);
+		travelEass.setApplicationNo(applicationNo);
 		
 		String applicantName =request.getParameter("ApplicantName");
 		response.getWriter();
@@ -132,9 +133,13 @@ public class EpassFormTest extends HttpServlet {
 	}
 
 		
+		//response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		doGet(request, response);
-	}
-		
+	} */
+
 }

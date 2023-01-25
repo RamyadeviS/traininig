@@ -65,7 +65,7 @@ protected void doGet(HttpServletRequest request, HttpServletResponse response) t
             }
             	else {
             		 writer.println("Login Failed");
-            		 request.getRequestDispatcher("WelcomePage.jsp").forward(request, response);
+            		 request.getRequestDispatcher("HomePage.jsp").forward(request, response);
             	        
             	        
             	}

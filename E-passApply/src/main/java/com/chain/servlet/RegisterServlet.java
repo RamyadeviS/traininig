@@ -85,7 +85,11 @@ public class RegisterServlet extends HttpServlet {
 									pst.executeUpdate();
 									// System.out.println(rows);// update status
 									// System.out.println("Values are Inserted");
+									
+									request.getRequestDispatcher("HomePage.jsp").forward(request, response);
 									System.out.println("Register successfully");
+									
+					
 								} catch (SQLException e) {
 									e.printStackTrace();
 								}

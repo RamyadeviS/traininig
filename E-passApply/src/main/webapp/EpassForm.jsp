@@ -35,6 +35,9 @@ background-color: orange;
                   <option value="Essential Services">Essential Services</option>
                   <option value="Medical Emergency">Medical Emergency</option>
                   <option value="Ecommerce Delivery Boys">Ecommerce Delivery Boys</option>
+                  <option value="Death Cause">Death Cause</option>
+                  <option value="Wedding Function">Wedding Function</option>
+                  
               </Select>
               </div><br>  
    

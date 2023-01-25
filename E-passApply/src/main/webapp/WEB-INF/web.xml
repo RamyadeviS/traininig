@@ -4,12 +4,16 @@
   <welcome-file-list> 
   
     <welcome-file>WelcomePage.jsp</welcome-file>
+    <welcome-file>HomePage.jsp</welcome-file>
     <welcome-file>Login.jsp</welcome-file>
     <welcome-file>Register.jsp</welcome-file>
     <welcome-file>RegSuccessfully.jsp</welcome-file>
     <welcome-file>EpassForm.jsp</welcome-file>
     <welcome-file>TravelEpassForm.jsp</welcome-file>
+    <welcome-file>AdminLogin.jsp</welcome-file>
     <welcome-file>ForgetPassword.jsp</welcome-file>
+    <welcome-file>ForgetPassword.jsp</welcome-file>
+    <welcome-file>ListOfReasons.jsp</welcome-file>
     
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
