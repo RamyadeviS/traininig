@@ -1,0 +1,133 @@
+<!Doctype html>
+<html>
+
+<head> <br><br>
+  <h2>Registration Form</h2>
+  <title>Register Form</title>
+</head>
+
+<body bgcolor="blue"></body>
+
+<body align="center">
+
+  <body background="C:\Users\ramy3344\Pictures\11123.jpg"></body>
+  <form id="loginform" name="myform1" onsubmit="validateForm()" action="Successfully.html" method="GET">
+    <table align="center">
+
+      <tr><br>
+        <td>
+          Aadhar no:
+        </td>
+        <td>
+
+          <input type="text"name="Aadhar no" placeholder="Aadhar no" required id="aadharNo">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          User name:
+        </td>
+        <td>
+          <input type="text" name="userName" placeholder="User name" required id="userName">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Password:
+        </td>
+        <td>
+          <input type="text"name="password" placeholder="Password" required id="password">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Mail Id:
+        </td>
+        <td>
+          <input type="text"name="mailId" placeholder="Mail Id" required id="mailId">
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          Mobile no:
+        </td>
+        <td>
+
+          <input type="text"name="mobile no" placeholder="Mobile no" required id="mobileNo">
+        </td>
+      </tr>
+
+    </table>
+    <br>
+    <input type="Checkbox" name="agree">
+    <label for="" agree">I agree to all the conditions of the Form</label>
+
+    <div>
+      <br>
+
+      <button type="Cancel">Cancel</button>
+      <button type="Submit">Submit</button>
+      <a href="Successfully.html"></a>
+
+    </div>
+    <div class="row">
+      <br>
+      <a href="Login.html">Sign in</a>
+
+    </div>
+
+  </form>
+  <script>
+    function validateForm() {
+      event.preventDefault(); //to prevent the default behaviour of navigation
+      let aadharNo = document.querySelector("#aadharNo").value;
+      let userName = document.querySelector("#userName").value;
+      let password = document.querySelector("#password").value;
+      let mailId = document.querySelector("#mailId").value;
+      let mobileNo = document.querySelector("#mobileNo").value;
+
+      try {
+        if (aadharNo == null || aadharNo.trim() == "") {
+
+          throw new Error("aadharNo cannot be empty");
+        }
+        else if (aadharNo.length < 12) {
+          throw new Error("aadharNo must be contain 12 digits");
+
+        } else if (userName == null || userName.trim() == "") {
+          throw new Error("Username cannot be empty");
+        }
+
+        else if (password.length< 8) {
+          throw new Error("password must be contain 8 characters");
+        }
+        else if (mailId == null || mailId.trim() == "") {
+          throw new Error("mailId cannot be empty");
+        }
+
+        else if (mobileNo == 10 || mobileNo.trim() == "") {
+
+          throw new Error("mobileNo cannot be empty");
+        }
+        else if (mobileNo.length < 10) {
+          throw new Error("mobileNo must be contain 10 digits");
+        }
+        
+      }
+      //catch(Exception err) => err.getMessage()
+      catch (err) {
+        console.error(err);
+        console.log("Validation Failed:" + err.message);
+        alert("Error:" + err.message);
+      }
+    }
+  </script>
+
+
+</body>
+
+</html>

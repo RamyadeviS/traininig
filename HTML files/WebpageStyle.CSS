@@ -1,0 +1,23 @@
+.menu{
+     
+     text-align:center ;
+     font-size: x-large;
+}
+
+body{
+    background-color:lightcoral;
+}
+
+img{
+    background-repeat:repeat;
+    height:2000px;
+    width:2500px ;
+}
+*
+{
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: 15cm;
+   
+}
