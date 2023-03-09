@@ -1,0 +1,51 @@
+*
+{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+    body{
+        background-size: cover;
+        background-position: center;
+        box-sizing: border-box;
+        font-family: sans-serif;
+        background-color:pink;
+}
+.column1 {
+  float: left; 
+  width: 31%;
+  padding:10px;
+  margin:20px 8px;
+  margin-right: auto;
+  background-color:#0000a0;
+  height: 470px;
+  color:#FFFFFF;
+  margin-top: 80px;
+  margin-left: 199px;
+  
+}
+
+.column2 {
+  float: left; 
+  width: 32%;
+  padding: 10px;
+  margin:20px 8px;
+  margin-right: auto;
+  background-color:#ffffff;
+  height: 470px;
+  color:#000000;
+  margin-top: 80px;
+  margin-left:-1px;
+}
+.column1 input[type="text"] {
+  width: 100%;
+  padding: 0.3rem 0.3rem;
+  margin: 0.5rem 0;
+  outline: none;
+}
+.column1 input[type="message"] {
+  width: 100%;
+  padding: 0.8rem 0.3rem;
+  margin: 0.5rem 0;
+  outline: none;
+}
